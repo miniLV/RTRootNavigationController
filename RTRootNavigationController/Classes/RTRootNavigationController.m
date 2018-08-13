@@ -684,6 +684,10 @@ __attribute((overloadable)) static inline UIViewController *RTSafeWrapViewContro
                   animated:(BOOL)animated
 {
     if (self.viewControllers.count > 0) {
+        
+        //test：设置导航条的统一显隐TabBar
+        viewController.hidesBottomBarWhenPushed = YES;
+        
         UIViewController *currentLast = RTSafeUnwrapViewController(self.viewControllers.lastObject);
         [super pushViewController:RTSafeWrapViewController(viewController,
                                                            viewController.rt_navigationBarClass,
